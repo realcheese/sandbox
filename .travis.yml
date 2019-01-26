@@ -1,23 +1,31 @@
 language: php
 
 php:
-  - 7.1
-  - 7.2
+#  - 7.1
+#  - 7.2
   - 7.3
 
 sudo: false
 
+# execute all of the commands which need to be executed
+# before installing dependencies
 before_install:
   - touch database/database.sqlite
   - cp .env.travis .env
   - composer self-update
   - composer validate
 
+# install all of the dependencies you need here
 install:
   - travis_retry composer install --dev --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
   - php artisan migrate:fresh --seed
 
+# execute all of the commands which need to be executed
+# before running actual tests
+before_script:
+
+# execute all of the commands which should make the build pass or fail
 script:
   #- vendor/bin/phpunit --verbose
   - vendor/bin/grumphp run

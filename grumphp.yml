@@ -6,7 +6,7 @@ parameters:
       phpcs: ~
       #phpcsfixer: ~
       composer: ~
-      phan: ~
+      #phan: ~
       progpilot: ~
       psalm: ~
       composer_require_checker: ~
