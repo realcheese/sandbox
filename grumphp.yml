@@ -1,0 +1,18 @@
+parameters:
+    git_dir: .
+    bin_dir: ./vendor/bin
+    stop_on_failure: false
+    tasks:
+      phpcs: ~
+      #phpcsfixer: ~
+      composer: ~
+      phan: ~
+      progpilot: ~
+      psalm: ~
+      composer_require_checker: ~
+      phpcpd: ~
+      phpmd: ~
+      phpspec: ~
+      phpstan: ~
+      phpunit: ~
+      jsonlint: ~

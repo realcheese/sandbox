@@ -10,10 +10,14 @@ sudo: false
 before_install:
   - touch database/database.sqlite
   - cp .env.travis .env
+  - composer self-update
+  - composer validate
 
 install:
-  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - travis_retry composer install --dev --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
   - php artisan migrate:fresh --seed
 
-script: vendor/bin/phpunit --verbose
+script:
+  #- vendor/bin/phpunit --verbose
+  - vendor/bin/grumphp run
