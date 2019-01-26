@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+
+sudo: false
+
+before_install:
+  - touch database/database.sqlite
+  - cp .env.travis .env
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - php artisan key:generate
+  - php artisan migrate:fresh --seed
+
+script: vendor/bin/phpunit --verbose
