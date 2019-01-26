@@ -15,6 +15,7 @@ parameters:
       phpcpd: ~
       phpmd: ~
       phpspec: ~
-      phpstan: ~
+      phpstan:
+        configuration: phpstan.neon
       phpunit: ~
       jsonlint: ~
