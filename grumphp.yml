@@ -3,7 +3,9 @@ parameters:
     bin_dir: ./vendor/bin
     stop_on_failure: false
     tasks:
-      phpcs: ~
+      phpcs:
+        standard: PSR2
+        ignore_patterns: [./tests/*, ./resources/*, ./database/*, ./bootstrap/*]
       #phpcsfixer: ~
       composer: ~
       #phan: ~
